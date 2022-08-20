@@ -41,7 +41,7 @@ const TopicPage = () => {
           console.log('topic', topic)
           return (
             <Col key={_id} md="6" lg="4" className='mb-4'>
-              <Link to={`/bread/${_id}`}>
+              <Link to={`/topic/${_id}`}>
                 <Card>
                   <Card.Img variant='top' src={imageUrl}></Card.Img>
                   <Card.Body className='bg-light'>
