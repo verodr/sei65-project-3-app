@@ -33,28 +33,29 @@ const TopicPage = () => {
 
 
   return (
-    <Container as="main">
-      <h1 className='text-center mb-4'>topic</h1>
-      <Row>
-        { topic.map(titles => {
-          const { _id, topic, imageUrl } = titles
-          console.log('topic', topic)
+    <>
+      <div className="topic-div">
+        <h1 className='text-center'>Topics</h1>
+      </div>
+      <div className="container">
+        {topic.map(titles => {
+          const { _id, topic, description, imageUrl } = titles
+          // console.log('topic', topic)
           return (
-            <Col key={_id} md="6" lg="4" className='mb-4'>
-              <Link to={`/topic/${_id}`}>
-                <Card>
-                  <Card.Img variant='top' src={imageUrl}></Card.Img>
-                  <Card.Body className='bg-light'>
-                    <Card.Title className='text-center mb-0'>{topic} - {}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Link>
-            </Col>
+            <div key={_id} className="topic">
+              <div>
+                <Link to={`/topic/${_id}`}>
+                  <div className="title">{topic}</div>
+                  <div className="description">{description}</div>
+                </Link>
+              </div>
+              <img className="image" src={imageUrl} max-width="300"max-height="200"></img>
+              
+            </div>
           )
-        }) }
-      </Row>
-    </Container>
+        })}
+      </div>
+    </>
   )
-
 }
 export default TopicPage
