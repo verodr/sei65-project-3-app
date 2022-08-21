@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const TopicPage = () => {
   const [ topic, setTopic ] = useState([])
@@ -43,15 +44,22 @@ const TopicPage = () => {
           // console.log('topic', topic)
           return (
             <div key={_id} className="topic">
-              <div>
+              <div className="topic-text">
                 <Link to={`/topic/${_id}`}>
                   <div className="title">{topic}</div>
                   <div className="description">{description}</div>
                 </Link>
+                <div className="topic-like">
+                  <p>👍 Likes: place variable here</p>
+                  <button className="topic-button">Click to like</button>
+                </div> 
               </div>
-              <img className="image" src={imageUrl} max-width="300"max-height="200"></img>
-              
+              <div className="topic-image">
+                <img className="image" src={imageUrl} max-width="300"max-height="200"></img>
+
+              </div>
             </div>
+            
           )
         })}
       </div>

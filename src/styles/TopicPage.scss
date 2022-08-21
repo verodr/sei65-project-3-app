@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
 }
@@ -17,7 +16,6 @@
   padding: 10px;
   box-shadow: 10px 10px 8px black;
   border-radius: 5px;
-  
   .title {
     display: flex;
     justify-content: center;
@@ -34,7 +32,6 @@
     -webkit-box-orient: vertical;
     background-color: $egg-blue;
   }
-}
 .description {
   display: flex;
   justify-content: center;
@@ -51,6 +48,7 @@
   -webkit-box-orient: vertical;
   background-color: $egg-blue;
 }
+
 .image {
   display: flex;
   justify-content: center;
@@ -64,4 +62,18 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: $egg-blue;
+}
+}
+.topic-image {
+  background-color: $egg-blue;
+}
+
+
+.topic-like {
+  display: flex;
+  justify-content: space-around;
+  background-color: $egg-blue;
+  p {
+  background-color: $egg-blue;
+  }
 }
