@@ -10,12 +10,19 @@
 }
 .topic {
   display: flex;
+  justify-content: center;
   background-color: $egg-blue;
-  max-width:800px;
+  width:800px;
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 10px 10px 8px black;
   border-radius: 5px;
+  .topic-date {
+    background-color: $egg-blue;
+    color: black;
+    text-align: center;
+    padding-bottom: 5px;
+  }
   .title {
     display: flex;
     justify-content: center;
@@ -55,24 +62,32 @@
   align-items: center;
   margin: 0 auto;
   margin-left: 3px;
-  width: 300px;
+  max-width: 300px;
   max-height: 200px;
-  background-image: url(./images/No-image.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   background-color: $egg-blue;
+
+
 }
 }
 .topic-image {
+  display:flex;
+  align-items: center;
+  justify-content: center;
   background-color: $egg-blue;
+  background-image: url(./images/No-image.png);
+  background-size: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width:300px;
 }
 
 
 .topic-like {
   display: flex;
+  align-items: center;
   justify-content: space-around;
   background-color: $egg-blue;
+  height:30px;
   p {
   background-color: $egg-blue;
   }
