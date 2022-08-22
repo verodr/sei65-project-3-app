@@ -15,6 +15,10 @@ input {
   display: flex;
   flex-direction: column;
   background-color: $egg-blue;
+  min-width: 320px;
+  max-width: 320px;
+  justify-content: center;
+  align-items: center;
 }
 
 .register-container{
@@ -30,7 +34,8 @@ input {
   background-color: $egg-blue;
   box-shadow: 10px 10px 8px black;
   border-radius: 5px;
-
+  min-width: 350px;
+  max-width: 350px;
 }
 
 .register-button-container {
