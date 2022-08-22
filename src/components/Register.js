@@ -17,6 +17,7 @@ const Register = () => {
   
   const handleChange = (e) => {
     setRegisterData({ ...registerData, [e.target.name]: e.target.value })
+    setErrors(false)
   }
   
   const onSubmit = async (e) => {
@@ -27,7 +28,7 @@ const Register = () => {
       navigate('/login')
     } catch (error) {
       console.log(error)
-      setErrors(true)
+      setErrors(error.response.data.message)
     }
   
   }
