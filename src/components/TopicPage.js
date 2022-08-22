@@ -19,7 +19,7 @@ const TopicPage = () => {
         const { data } = await axios.get('http://localhost:4000/topic')
         // console.log(response)
         setTopic(data)
-        console.log('data', data )
+        // console.log('data', data )
       } catch (errors) {
         console.log(errors)
         setErrors(true)
@@ -32,9 +32,9 @@ const TopicPage = () => {
   return (
     <>
       <div className="topic-div">
-        <h1 className='text-center'>Topics</h1>
+        <h1 className="text-center">Topics</h1>
       </div>
-      <div className="container">
+      <div className="topic-container">
         {topic.map(titles => {
           const { _id, topic, description, imageUrl, createdAt } = titles
           
@@ -42,7 +42,7 @@ const TopicPage = () => {
           const date = createdAt.split('T')[0]
           const time = createdAt.split('T')[1]
           const actualTime = time.split('.')[0]
-          console.log('time', actualTime)
+          // console.log('time', actualTime)
 
           return (
             <div key={_id} className="topic">
@@ -57,7 +57,7 @@ const TopicPage = () => {
                 </div> 
               </div> 
               <div className="topic-image">
-                <img className="image" src={imageUrl} max-width="300"max-height="200"></img>
+                <img className="image" src={imageUrl}></img>
               </div>
             </div> 
           )

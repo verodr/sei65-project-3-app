@@ -1,13 +1,14 @@
-.container {
+.topic-div {
+  display: flex;
+  justify-content: center;
+}
+.topic-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
 }
-.topic-div {
-  display: flex;
-  justify-content: center;
-}
+
 .topic {
   display: flex;
   justify-content: center;
@@ -17,6 +18,9 @@
   padding: 10px;
   box-shadow: 10px 10px 8px black;
   border-radius: 5px;
+  .topic-text {
+    background-color: $egg-blue;
+  }
   .topic-date {
     background-color: $egg-blue;
     color: black;
@@ -27,7 +31,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     width: 480px;
     background-color: $egg-blue;
@@ -63,7 +67,7 @@
   margin: 0 auto;
   margin-left: 3px;
   max-width: 300px;
-  max-height: 200px;
+  max-height: 300px;
   background-color: $egg-blue;
 
 
