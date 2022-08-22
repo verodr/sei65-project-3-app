@@ -7,16 +7,25 @@
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   background-color: $egg-blue;
   width: 100vw;
   height:15vh;
   text-align: center;
+  padding-top: 5px;
   p {
     background-color: $egg-blue;
     text-align: center;
   }
   
+}
+.footer-header {
+  background-color: grey;
+  text-align: center;
+  font-size: 22px;
+padding: 5px;
+
+
 }
 
 .Mark {
@@ -25,13 +34,24 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 5px; 
+  padding: 20px;
   
 }
 .Rokas {
   background-color: $egg-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px; 
+  padding: 20px;
 }
 .Veronica {
   background-color: $egg-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px; 
+  padding: 20px;
 }
 
 .Logo {
@@ -41,4 +61,8 @@
   height:50px;
   width:50px;
   margin-top: 10px;
+}
+
+a {
+  background-color: $egg-blue;
 }
