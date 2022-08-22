@@ -19,7 +19,7 @@ const TopicPage = () => {
         const { data } = await axios.get('http://localhost:4000/topic')
         // console.log(response)
         setTopic(data)
-        // console.log('data', data )
+        console.log('data', data )
       } catch (errors) {
         console.log(errors)
         setErrors(true)
