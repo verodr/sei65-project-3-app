@@ -10,7 +10,7 @@
   justify-content: space-around;
   background-color: $egg-blue;
   width: 100vw;
-  height:10vh;
+  height:15vh;
   text-align: center;
   p {
     background-color: $egg-blue;
@@ -23,6 +23,8 @@
   background-color: $egg-blue;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px; 
   
 }
 .Rokas {
@@ -33,6 +35,10 @@
 }
 
 .Logo {
-  Height: 30px;
-
+  display: flex;
+  justify-content: center;
+  background-color: $egg-blue;
+  height:50px;
+  width:50px;
+  margin-top: 10px;
 }
