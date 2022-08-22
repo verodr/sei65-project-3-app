@@ -5,6 +5,7 @@
 @import './TopicPage.scss';
 @import './Footer.scss';
 @import './Register.scss';
+@import './Login.scss';
 
 * {
   box-sizing: border-box;
@@ -14,3 +15,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  margin: 0;
+}
