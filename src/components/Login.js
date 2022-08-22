@@ -37,18 +37,18 @@ const Login = () => {
   
   
   return (
-    <div>
-      <div>
-        <h1>Login Form</h1>
-      </div>
+    <div className='login-container'>
+      <h1 className='login-title'>Login Form</h1>
       {errors && <div className='error'>{errors}</div>}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='login-form'>
         <input 
           type='text' name='userName' placeholder='Username' value={loginData.userName} onChange={handleChange}
         />
         <input type='password' name='password' placeholder='Password' value={loginData.password} onChange={handleChange}
         />
-        <button type='submit'>Login</button>
+        <div className='login-button-container'>
+          <button type='submit' className='login-button'>Login</button>
+        </div>
       </form>
     </div>
   )
