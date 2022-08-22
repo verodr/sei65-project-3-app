@@ -36,7 +36,7 @@ const TopicPage = () => {
       </div>
       <div className="topic-container">
         {topic.map(titles => {
-          const { _id, topic, description, imageUrl, createdAt } = titles
+          const { _id, topic, description, imageUrl, topicUser, createdAt } = titles
           
           // console.log('topic', topic)
           const date = createdAt.split('T')[0]
@@ -48,7 +48,7 @@ const TopicPage = () => {
             <div key={_id} className="topic">
               <div className="topic-text">
                 <Link to={`/topic/${_id}`}>
-                  <div className="topic-date">Added on: {date} at: {actualTime}</div>
+                  <div className="topic-date">{topicUser} Added on: {date} at: {actualTime}</div>
                   <div className="title">{topic}</div>
                   <div className="description">{description}</div>
                 </Link>
