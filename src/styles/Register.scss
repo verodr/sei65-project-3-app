@@ -1,0 +1,71 @@
+
+
+input {
+  margin: 10px;
+  width: 250px;
+  height: 30px;
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  background-color: $egg-blue;
+}
+
+.register-container{
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 30px;
+  background-color: $egg-blue;
+  box-shadow: 10px 10px 8px black;
+  border-radius: 5px;
+
+}
+
+.register-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: $egg-blue;
+}
+
+.register-button {
+  width: 150px;
+  height: 45px;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: $egg-blue;
+  border: 1px solid $bg;
+  &:hover {
+    background-color: $bg;
+  }
+}
+
+.register-title {
+  margin-top: 0;
+  background-color: $egg-blue;
+}
+
+.error {
+  margin-block: 20px;
+  font-size: 20px;
+  background-color: red;
+  color: white;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 300px;
+}

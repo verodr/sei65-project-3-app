@@ -35,12 +35,10 @@ const Register = () => {
   
   
   return (
-    <div>
-      <div>
-        <h1>Registration form</h1>
-      </div>
+    <div className='register-container'>
+      <h1 className='register-title'>Registration form</h1>
       {errors && <div className='error'>{errors}</div>}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className='register-form'>
         <input 
           type='text' name='userName' placeholder='Username' value={registerData.userName} onChange={handleChange}
         />
@@ -51,7 +49,9 @@ const Register = () => {
 
         <input type='password' name='confirmPassword' placeholder='Confirm Password' value={registerData.confirmPassword} onChange={handleChange}
         />
-        <button type='submit'>Register</button>
+        <div className='register-button-container'>
+          <button type='submit' className='register-button'>Register</button>
+        </div>
       </form>
     </div>
     
