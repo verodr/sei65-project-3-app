@@ -9,6 +9,8 @@ import axios from 'axios'
 const TopicPage = () => {
   const [ topic, setTopic ] = useState([])
   const [ errors, setErrors] = useState(false)
+  const [resStatus, setResStatus] = useState(null)
+  const [data, setData] = useState([])
 
 
   // ! Executed
@@ -17,7 +19,6 @@ const TopicPage = () => {
     const getData = async () => {
       try {
         const { data } = await axios.get('http://localhost:4000/topic')
-        // console.log(response)
         setTopic(data)
         console.log('data', data )
       } catch (errors) {
@@ -26,7 +27,20 @@ const TopicPage = () => {
       }
     }
     getData()
-  }, [])
+  }, [resStatus])
+
+  const likeTopic = async (Id, firstLike) => {
+    try {
+      
+      console.log(localStorage.getItem('userName'))
+      const body = { like: firstLike + 1 }
+      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      setResStatus(firstLike)
+      console.log(res.data.message)
+    } catch (error){
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -36,7 +50,7 @@ const TopicPage = () => {
       </div>
       <div className="topic-container">
         {topic.map(titles => {
-          const { _id, topic, description, imageUrl, topicUser, createdAt } = titles
+          const { _id, topic, description, imageUrl, topicUser, createdAt, like } = titles
           
           // console.log('topic', topic)
           const date = createdAt.split('T')[0]
@@ -52,8 +66,9 @@ const TopicPage = () => {
                   <div className="title">{topic}</div>
                   <div className="description">{description}</div>
                 </Link>
-                <div className="topic-like">👍 Likes: place variable here
-                  <button className="topic-button">Click to like</button>
+                <div className="topic-like">
+                  <button onClick={() => likeTopic( _id, like )}>👍
+                    <span>{like}</span></button>
                 </div> 
               </div> 
               <div className="topic-image">
