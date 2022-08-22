@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.navbar {
+  background-color: $egg-blue;
+  .navbar-brand {
+    font-size: 60px;
+  }
+  .nav-link {
+    margin-inline: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

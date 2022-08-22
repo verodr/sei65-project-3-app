@@ -3,19 +3,6 @@ import { useParams , Link } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 
-<<<<<<< HEAD
-// // the below here just until I have login page
-// localStorage.setItem('userName', 'TheLady')
-
-// /// Hacking the authorization - to be deleted!
-// const hacker = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6IlRoZUxhZHkiLCJlbWFpbCI6ImxhZHlAbWFpbCIsImlhdCI6MTY2MTA4MjkzNywiZXhwIjoxNjYxMjU1NzM3fQ.uusZEmgo2N-3W68N5NAcmbJ-3kC25IjnywR560DrYzc'
-// axios.defaults.headers.common['Authorization'] = hacker
-
-// /// end
-
-
-=======
->>>>>>> b6315ee3132660dd27d695d40cf739498318ace3
 const CommentPage = () => {
 
   // Set of states

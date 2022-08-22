@@ -1,7 +1,7 @@
 @import './variables';
 
 // pages
-@import './PageNavbar.scss';
+@import './navbar.scss';
 @import './TopicPage.scss';
 @import './Footer.scss';
 @import './Register.scss';
@@ -9,7 +9,6 @@
 
 * {
   box-sizing: border-box;
-  background-color: $bg;
   text-decoration: none;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -17,4 +16,6 @@
 
 body {
   margin: 0;
+  background-color: $bg;
+  width: 100vw;
 }
