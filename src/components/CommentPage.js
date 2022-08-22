@@ -44,8 +44,7 @@ const CommentPage = () => {
     const getData = async () => {
       try {
         const res = await axios.get(`http://localhost:4000/comment/${single}`)
-        const result = res.data.map(c => ( { ...c, updating: false  }))
-        setCommentList(result)
+        setCommentList(res.data)
       } catch (err) {
         setErrors(true)
       }
@@ -75,7 +74,7 @@ const CommentPage = () => {
       setResStatus(res)
       setUpdating('')
     } catch (error){
-      console.log(error.response)
+      console.log('Error message: ', error.response.data.message)
       setResStatus(error.response)
     }
   }
@@ -103,9 +102,9 @@ const CommentPage = () => {
     setUpdateInput(e.target.value)
   }
 
-  // it reset the value of "updating" to false, making the updating form disappear
+  // it reset the value of "updating" to its original value, making the updating form disappear
   const cancelUpdating = (e) => {
-    setUpdating(false)
+    setUpdating('')
     setResStatus({ status: '' })
   }
 
@@ -129,6 +128,7 @@ const CommentPage = () => {
   return (
     <div className="view">
       <h3>{data.topic}</h3>
+      <img className="image" src={data.imageUrl}></img>
       <h4>{data.description}</h4>
       {/* This line displays the message from the server when a request has successfully completed (resStatus.data.message) */}
       { resStatus.status === 200 && <p className='text-danger'> {resStatus.data.message} </p>}
@@ -160,7 +160,7 @@ const CommentPage = () => {
                       }
                     }
                     }> DELETE </button> 
-                    <button value={commentList.indexOf(c)} onClick={() => { 
+                    <button onClick={() => { 
                       if (checkLogin(c)){
                         setUpdating(c._id) 
                         setUpdateInput(c.text)
@@ -171,7 +171,7 @@ const CommentPage = () => {
                   { updating === c._id && 
                   ( <form name ='update-com' onSubmit={(text) => openUpdateForm(text, data._id, c._id)}> 
                     <input type="text"
-                      name={c._id}
+                      name= 'up-com'
                       defaultValue={c.text}
                       placeholder= 'edit comment'
                       onChange = {handleUpdateChange}>
