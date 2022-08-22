@@ -3,6 +3,7 @@ import { useParams , Link } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
 
+<<<<<<< HEAD
 // // the below here just until I have login page
 // localStorage.setItem('userName', 'TheLady')
 
@@ -13,6 +14,8 @@ import Container from 'react-bootstrap/Container'
 // /// end
 
 
+=======
+>>>>>>> b6315ee3132660dd27d695d40cf739498318ace3
 const CommentPage = () => {
 
   // Set of states
