@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
+
 const Login = () => {
   
   const [ loginData, setloginData ] = useState({
@@ -33,24 +34,25 @@ const Login = () => {
       console.log(error)
       setErrors(error.response.data.message)
     }
-  
   }
   
   
   return (
-    <div className='login-container'>
-      <h1 className='login-title'>Login Form</h1>
-      {errors && <div className='error'>{errors}</div>}
-      <form onSubmit={onSubmit} className='login-form'>
-        <input 
-          type='text' name='userName' placeholder='Username' value={loginData.userName} onChange={handleChange}
-        />
-        <input type='password' name='password' placeholder='Password' value={loginData.password} onChange={handleChange}
-        />
-        <div className='login-button-container'>
-          <button type='submit' className='login-button'>Login</button>
-        </div>
-      </form>
+    <div className='login-body'>
+      <div className='login-container'>
+        <h1 className='login-title'>Login Form</h1>
+        {errors && <div className='error'>{errors}</div>}
+        <form onSubmit={onSubmit} className='login-form'>
+          <input 
+            type='text' name='userName' placeholder='Username' value={loginData.userName} onChange={handleChange}
+          />
+          <input type='password' name='password' placeholder='Password' value={loginData.password} onChange={handleChange}
+          />
+          <div className='login-button-container'>
+            <button type='submit' className='login-button'>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   )
   
