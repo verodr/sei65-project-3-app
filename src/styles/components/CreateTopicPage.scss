@@ -1,9 +1,9 @@
-.create-title {
+.create-form {
     display: flex;
     flex-direction: column;
     background-color: $egg-blue;
-    min-width: 320px;
-    max-width: 320px;
+    min-width: 295px;
+    max-width: 300px;
     justify-content: center;
     align-items: center;
   }
@@ -49,4 +49,13 @@
     margin-top: 0;
     background-color: $egg-blue;
   }
+
+  #message-box {
+    color: black;
+    width: 250px;
+    height: 100px;
+    resize:none;
+    border-radius: 5px;
+    }
+
   
