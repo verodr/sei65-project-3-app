@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       <div className="topic-div">
-        <h1 className="text-center">Home page</h1>
+        <h1 className="text-center">Latest Topic</h1>
       </div>
       <div className="topic-container">
         {topic.map(titles => {
