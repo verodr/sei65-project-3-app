@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
+import { getToken } from './components/auth'
+import { authUser } from './components/auth'
 
 //components
 import CommentPage from './components/CommentPage'
@@ -16,6 +18,17 @@ import NotFound from './components/NotFound'
 
 
 const App = () => {
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    } else {
+      axios.defaults.headers.common['Authorization'] = null
+    }
+  }, [])
+
+
   return (
     <div className= 'App'>
       <BrowserRouter>
@@ -27,7 +40,7 @@ const App = () => {
           <Route path = '/topic/:single' element = {<CommentPage/>} />
           <Route path = '/register' element = {<Register/>} />
           <Route path = '/login' element = {<Login/>} />
-          <Route path = '/notFound' element = {<NotFound/>} />
+          <Route path = '*' element = {<NotFound/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
