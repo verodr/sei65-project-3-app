@@ -35,7 +35,7 @@ const CommentPage = () => {
     const getData = async () => {
       try {
         const res = await axios.get(`http://localhost:4000/comment/${single}`)
-        setCommentList(res.data.reverse())
+        setCommentList(res.data)
       } catch (err) {
         setErrors(true)
       }
@@ -118,24 +118,11 @@ const CommentPage = () => {
 
   return (
     <div className="view">
-      <h3>{data.topic}</h3>
-      <img className="image" src={data.imageUrl}></img>
-      <h4>{data.description}</h4>
-      {/* This line displays the message from the server when a request has successfully completed (resStatus.data.message) */}
-      { resStatus.status === 200 && <p className='text-danger'> {resStatus.data.message} </p>}
-      
-      <form onSubmit={createComment} className="flex-column">
-        <input
-          type="text"
-          placeholder="comment here"
-          value= {userInput}
-          onChange={handleChange}
-        />
-        <button type="submit">SEND</button>
-      </form>
-      { resStatus.status === 403 && <p className='text-danger'> ERROR: You can`t modify other users` comments!</p>}
-      { resStatus.status === 'NoToken' && <p className='text-danger'> ERROR: Not logged in! Please <Link to = '/login'>Login</Link>!</p>}
-      { resStatus.status === 'WrongToken' && <p className='text-danger'> ERROR: You cannot modify other users` comments!!</p>}
+      <div className='topic-header'>
+        <h3>{data.topic}</h3>
+        <img className="image" src={data.imageUrl}></img>
+        <h4>{data.description}</h4>
+      </div>
       <ul className='comments'>
         { commentList ? 
           <>
@@ -144,15 +131,17 @@ const CommentPage = () => {
                 <li key={c._id}> 
                   { updating !== c._id && 
                   <> <p> {c.text} </p>
-                    <p> created by: {c.commentUser} </p>
-                    <p> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
-                    <button onClick={() => {
+                    <div className='created-by-on'>
+                      <p className='currentBy'> created by: {c.commentUser} </p>
+                      <p className='currentOn'> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
+                    </div>
+                    <button className='delete' onClick={() => {
                       if (checkLogin(c)) {
                         deleteComment(data._id, c._id)
                       }
                     }
                     }> DELETE </button> 
-                    <button onClick={() => { 
+                    <button className='update' onClick={() => { 
                       if (checkLogin(c)){
                         setUpdating(c._id) 
                         setUpdateInput(c.text)
@@ -168,7 +157,7 @@ const CommentPage = () => {
                       placeholder= 'edit comment'
                       onChange = {handleUpdateChange}>
                     </input> 
-                    <button type="submit">EDIT</button> or <button onClick={ cancelUpdating }>CANCEL</button> 
+                    <button className='edit' type="submit">EDIT</button> or <button className='cancel' onClick={ cancelUpdating }>CANCEL</button> 
                   </form> ) 
                   }
                 </li>
@@ -183,6 +172,22 @@ const CommentPage = () => {
           </h2>
         }
       </ul>
+      <div className='comment-form'>
+        {/* This line displays the message from the server when a request has successfully completed (resStatus.data.message) */}
+        { resStatus.status === 200 && <p className='post-comment'> {resStatus.data.message} </p>}
+        { resStatus.status === 403 && <p className='comment-error'> ERROR: You can`t modify other users` comments!</p>}
+        { resStatus.status === 'NoToken' && <p className='comment-error'> ERROR: Not logged in! Please <Link to = '/login'>Login</Link>!</p>}
+        { resStatus.status === 'WrongToken' && <p className='comment-error'> ERROR: You cannot modify other users` comments!!</p>}
+        <form onSubmit={createComment} className="form">
+          <input
+            type="text"
+            placeholder="Comment Here"
+            value= {userInput}
+            onChange={handleChange}
+          />
+          <button className='submit' type="submit">SEND</button>
+        </form>
+      </div>
     </div>
   )
 }
