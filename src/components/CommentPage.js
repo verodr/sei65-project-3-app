@@ -18,6 +18,7 @@ const CommentPage = () => {
   const [updating, setUpdating] = useState('')
 
 
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -34,7 +35,7 @@ const CommentPage = () => {
     const getData = async () => {
       try {
         const res = await axios.get(`http://localhost:4000/comment/${single}`)
-        setCommentList(res.data)
+        setCommentList(res.data.reverse())
       } catch (err) {
         setErrors(true)
       }
@@ -144,6 +145,7 @@ const CommentPage = () => {
                   { updating !== c._id && 
                   <> <p> {c.text} </p>
                     <p> created by: {c.commentUser} </p>
+                    <p> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
                     <button onClick={() => {
                       if (checkLogin(c)) {
                         deleteComment(data._id, c._id)

@@ -35,7 +35,19 @@ const TopicPage = () => {
       console.log(localStorage.getItem('userName'))
       const body = { like: firstLike + 1 }
       const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
-      setResStatus(firstLike)
+      setResStatus(body)
+      console.log(res.data.message)
+    } catch (error){
+      console.log(error)
+    }
+  }
+  const dislikeTopic = async (Id, firstLike) => {
+    try {
+      
+      console.log(localStorage.getItem('userName'))
+      const body = { dislike: firstLike + 1 }
+      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      setResStatus(body)
       console.log(res.data.message)
     } catch (error){
       console.log(error)
@@ -50,7 +62,7 @@ const TopicPage = () => {
       </div>
       <div className="topic-container">
         {topic.map(titles => {
-          const { _id, topic, description, imageUrl, topicUser, createdAt, like } = titles
+          const { _id, topic, description, imageUrl, topicUser, createdAt, like, dislike } = titles
           
           // console.log('topic', topic)
           const date = createdAt.split('T')[0]
@@ -69,6 +81,7 @@ const TopicPage = () => {
                 <div className="topic-like">
                   <button onClick={() => likeTopic( _id, like )}>👍
                     <span>{like}</span></button>
+                  <button onClick={() => dislikeTopic( _id, dislike )}>👎<span>{dislike}</span></button>
                 </div> 
               </div> 
               <div className="topic-image">
