@@ -26,7 +26,7 @@ const Login = () => {
       const res = await axios.post('http://localhost:4000/login', loginData)
       const { token } = res.data
       localStorage.setItem('token', token)
-      localStorage.setItem('userName', loginData.userName )
+      localStorage.setItem('userName', loginData.userName)
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
       navigate('/')
     } catch (error) {

@@ -1,0 +1,52 @@
+.create-title {
+    display: flex;
+    flex-direction: column;
+    background-color: $egg-blue;
+    min-width: 320px;
+    max-width: 320px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .create-container {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: 0 auto;
+    border: 1px solid black;
+    margin-block: 30px;
+    background-color: $egg-blue;
+    box-shadow: 10px 10px 8px black;
+    border-radius: 5px;
+    min-width: 350px;
+    max-width: 350px;
+  }
+  
+  .create-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: $egg-blue;
+  }
+  
+  .create-button {
+    width: 150px;
+    height: 45px;
+    border-radius: 3px;
+    font-size: 16px;
+    background-color: $egg-blue;
+    border: 1px solid $bg;
+    &:hover {
+      background-color: $bg;
+    }
+  }
+  
+  .create-title {
+    margin-top: 0;
+    background-color: $egg-blue;
+  }
+  

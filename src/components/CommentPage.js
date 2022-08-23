@@ -35,7 +35,7 @@ const CommentPage = () => {
     const getData = async () => {
       try {
         const res = await axios.get(`http://localhost:4000/comment/${single}`)
-        setCommentList(res.data.reverse())
+        setCommentList(res.data)
       } catch (err) {
         setErrors(true)
       }
