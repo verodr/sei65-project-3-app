@@ -25,6 +25,7 @@ const PageNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav.Link as={Link} to="/">HOME</Nav.Link>
           <Nav.Link as={Link} to="/topic">ALL TOPICS</Nav.Link>
+          <Nav.Link as={Link} to="/topic/create">CREATE TOPIC</Nav.Link>
           <Nav.Link as={Link} to="/login">LOGIN</Nav.Link>
           <Nav.Link as={Link} to="/register">REGISTER</Nav.Link>
           { authUser() 
