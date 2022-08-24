@@ -17,13 +17,13 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data: latestTopic } = await axios.get('http://localhost:4000/topic')
+        const { data: latestTopic } = await axios.get('http://localhost:4000/latest-topic')
         const { data: mostComments } = await axios.get('http://localhost:4000/highest-comment')
         const { data: mostLikes } = await axios.get('http://localhost:4000/most-likes')
-        setTopics([{ latestTopic: { ...latestTopic[0], title: 'Latest Topic' },
+        setTopics({ latestTopic: { ...latestTopic, title: 'Latest Topic' },
           mostComments: { ...mostComments, title: 'Most Comments' },
           mostLikes: { ...mostComments, title: 'Most Comments' }, 
-        }])
+        })
       } catch (errors) {
         console.log(errors)
         setErrors(true)
@@ -37,14 +37,13 @@ const Home = () => {
   }, [topics])
 
   // console.log('new topic', topics)
-  // for (const latestTopic in topics) {
+  //for (const latestTopic in topics) {
   //   return (
   //     <>
-  //       <div>(`${topics}: ${latestTopic[topics]}`)</div>      
+  //       <div>({topics.latestTopic[0].topic})</div>      
         
 
-  //     </>
-  //   )
-  // }
+//     </>
+//   )
 }
 export default Home
