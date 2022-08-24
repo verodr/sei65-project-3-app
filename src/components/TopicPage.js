@@ -11,7 +11,23 @@ const TopicPage = () => {
   const [ errors, setErrors] = useState(false)
   const [resStatus, setResStatus] = useState(null)
   const [data, setData] = useState([])
+  const [search, setSearch] = useState('')
+  const [filteredTopics, setFilteredTopics] = useState([])
 
+
+  // ! execution
+  const handleChange = (event) => {
+    setSearch(event.target.value)
+  }
+  
+  useEffect(() => {
+    const regexSearch = new RegExp(search, 'i')
+    const filteredArray = topic.filter(topLine => {
+      return regexSearch.test(topLine.topic) 
+    })
+    setFilteredTopics(filteredArray)
+  }, [search, topic])
+  console.log('search', search)
 
   // ! Executed
   useEffect(() => {
@@ -54,14 +70,22 @@ const TopicPage = () => {
     }
   }
 
+  // comment
 
   return (
     <>
       <div className="topic-div">
-        <h1 className="text-center">All Topics</h1>
+        <div className="search-topics">
+          <div>
+            <input onChange={handleChange} className="mb-4" type="text" name="search" value={search} placeholder="Search topics"/>
+          </div>
+          <div>
+            <h1 className="text-center">All Topics</h1>
+          </div>
+        </div>
       </div>
       <div className="topic-container">
-        {topic.map(titles => {
+        {filteredTopics.map(titles => {
           const { _id, topic, description, imageUrl, topicUser, createdAt, like, dislike } = titles
           
           // console.log('topic', topic)

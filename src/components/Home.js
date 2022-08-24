@@ -54,7 +54,7 @@ const Home = () => {
       </div>
       <div className="topic-container">
         <div>
-          {Object.values(topics).map(topic => (
+          {Object.values(topics).map((topic, index) => (
             <>
               <div className="home-title">{topic.title}</div>
               <div key={topic[0]._id} className="topic">
