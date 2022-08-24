@@ -2,8 +2,6 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
-import { getToken } from './components/auth'
-import { authUser } from './components/auth'
 
 //components
 import CommentPage from './components/CommentPage'
