@@ -10,6 +10,7 @@
   text-align: center;
   box-shadow: 10px 10px 8px black;
   background-color: $egg-blue;
+ 
 }
 
 .comments {
@@ -83,3 +84,7 @@ ul {
     color: black;
   }
 }
+.image {
+  max-width: 300px;
+}
+
