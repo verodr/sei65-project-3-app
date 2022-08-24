@@ -4,3 +4,22 @@
   display: flex;
   flex-direction: column;
 }
+
+// <div key={_id} className="topic">
+//             <div className="topic-text">
+//               <Link to={`/topic/${_id}`}>
+//                 <div className="topic-date">{topicUser} Added on: {date} at: {actualTime}</div>
+//                 <div className="title">{topic}</div>
+//                 <div className="description">{description}</div>
+//               </Link>
+//             </div>
+//             <div className="topic-image">
+//               <img className="image" src={imageUrl}></img>
+//             </div>
+//           </div>
+
+  //         topics[0].map(
+  //         const { _id, topic, description, imageUrl, topicUser, createdAt, title } = titles
+  //         const date = createdAt.split('T')[0]
+  //         const time = createdAt.split('T')[1]
+  //         const actualTime = time.split('.')[0]

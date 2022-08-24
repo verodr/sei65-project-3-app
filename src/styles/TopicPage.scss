@@ -53,11 +53,12 @@
   width: 480px;
   padding-top: 10px;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
   background-color: $egg-blue;
+  overflow-wrap: break-word;
 }
 
 .image {
