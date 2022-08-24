@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const CreateTopicPage = () => {
   const [resStatus, setResStatus] = useState('')
-  const [userInput, setUserInput] = useState('')
-  const [ errors, setErrors ] = useState(false)
+  const [loginError, setLoginError] = useState('')
+  const [ errors, setErrors ] = useState('')
   const [ topicData, setTopicData ] = useState({
     topic: '',
     description: '',
@@ -17,7 +17,7 @@ const CreateTopicPage = () => {
 
   const checkLogin = (comm) => {
     if (!localStorage.getItem('token')) {
-      setResStatus({ status: 'NoToken' })
+      setLoginError('noLogin')
       return false
     }
     const currentUserName = localStorage.getItem('userName')
@@ -41,7 +41,7 @@ const CreateTopicPage = () => {
     }
     //the code below is to check if the url is the right format to be printed
     const body = topicData
-    if (body.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null)  { 
+    if (body.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null && body.imageUrl !== '')  { 
       setResStatus('wrong-url')
       return 
     }
@@ -53,7 +53,7 @@ const CreateTopicPage = () => {
       navigate('/topic')
     } catch (error){
       console.log(error.response)
-      setResStatus(error.response.data.message)
+      setErrors(error.response.data.message)
     }
     setTopicData({
       topic: '',
@@ -69,6 +69,8 @@ const CreateTopicPage = () => {
         <textarea name='description' placeholder='type text here' id="message-box" value={topicData.description} onChange={handleChange}></textarea>
         <input type='text' name='imageUrl' placeholder='Url img' value={topicData.imageUrl} onChange={handleChange}/>
         { resStatus === 'wrong-url' && <p className='text-danger'> ERROR:The url provided is not a supported format!</p>}
+        <p> { errors } </p>
+        {loginError === 'noLogin' && <p> Need to <Link to = '/login'>Login</Link></p>}
         <div className='create-button-container'>
           <button type='submit' className='create-button'>CREATE</button>
         </div>
