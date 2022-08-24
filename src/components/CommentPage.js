@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams , Link } from 'react-router-dom'
 import axios from 'axios'
 import Container from 'react-bootstrap/Container'
+import { useNavigate } from 'react-router-dom'
 
 const CommentPage = () => {
 
@@ -16,6 +17,7 @@ const CommentPage = () => {
 
   const [ errors, setErrors ] = useState(false)
   const [updating, setUpdating] = useState('')
+  const navigate = useNavigate()
 
 
 
@@ -51,6 +53,15 @@ const CommentPage = () => {
       setResStatus(error.response)
     }
   }
+  const deleteTopic = async (single) => {
+    try { 
+      const res = await axios.delete(`http://localhost:4000/topic/${single}`)
+      setResStatus(res)
+      navigate('/topic')
+    } catch (error){
+      setResStatus(error.response)
+    }
+  }
 
   const openUpdateForm = (e, single, commentId) => {
     e.preventDefault()
@@ -71,12 +82,13 @@ const CommentPage = () => {
   }
 
   const checkLogin = (comm) => {
-    if (!axios.defaults.headers.common['Authorization']) {
+    if (!localStorage.getItem('token')){
       setResStatus({ status: 'NoToken' })
       return false
     }
     const currentUserName = localStorage.getItem('userName')
-    if (currentUserName !== comm.commentUser){
+    const authorTopic = comm.commentUser ? comm.commentUser : comm.topicUser 
+    if (currentUserName !== authorTopic){
       setResStatus({ status: 'WrongToken' })
       return false
     }
@@ -114,6 +126,30 @@ const CommentPage = () => {
     }
     setUserInput('')
   }
+  const likeTopic = async (Id, firstLike) => {
+    try {
+      
+      console.log(localStorage.getItem('userName'))
+      const body = { like: firstLike + 1 }
+      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      setResStatus(body)
+      console.log(res.data.message)
+    } catch (error){
+      console.log(error)
+    }
+  }
+  const dislikeTopic = async (Id, firstLike) => {
+    try {
+      
+      console.log(localStorage.getItem('userName'))
+      const body = { dislike: firstLike + 1 }
+      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      setResStatus(body)
+      console.log(res.data.message)
+    } catch (error){
+      console.log(error)
+    }
+  }
 
 
   return (
@@ -121,8 +157,21 @@ const CommentPage = () => {
       <div className='topic-header'>
         <h3>{data.topic}</h3>
         <img className="image" src={data.imageUrl}></img>
-        <p className="comment-description">{data.description}</p>
+        <p className="comment-description">{data.description}</p> 
+        <button className='delete' onClick={() => {
+          if (checkLogin(data)) {
+            deleteTopic(data._id)
+            // navigate('/topic')
+          }
+        }
+        }> DELETE </button> 
       </div>
+      <div className="topic-like">
+        <button onClick={() => likeTopic( data._id, data.like )}>👍
+          <span>{data.like}</span></button>
+        <button onClick={() => dislikeTopic( data._id, data.dislike )}>👎<span>{data.dislike}</span></button>
+      </div>
+      
       <ul className='comments'>
         { commentList ? 
           <>
@@ -177,14 +226,9 @@ const CommentPage = () => {
         { resStatus.status === 200 && <p className='post-comment'> {resStatus.data.message} </p>}
         { resStatus.status === 403 && <p className='comment-error'> ERROR: You can`t modify other users` comments!</p>}
         { resStatus.status === 'NoToken' && <p className='comment-error'> ERROR: Not logged in! Please <Link to = '/login'>Login</Link>!</p>}
-        { resStatus.status === 'WrongToken' && <p className='comment-error'> ERROR: You cannot modify other users` comments!!</p>}
+        { resStatus.status === 'WrongToken' && <p className='comment-error'> ERROR: You cannot modify other users` contents!!</p>}
         <form onSubmit={createComment} className="form">
-          <input
-            type="text"
-            placeholder="Comment Here"
-            value= {userInput}
-            onChange={handleChange}
-          />
+          <input type="text" placeholder="Comment Here" value= {userInput} onChange={handleChange}/>
           <button className='submit' type="submit">SEND</button>
         </form>
       </div>
