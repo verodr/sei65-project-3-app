@@ -69,7 +69,6 @@ const TopicPage = () => {
           const time = createdAt.split('T')[1]
           const actualTime = time.split('.')[0]
           // console.log('time', actualTime)
-
           return (
             <div key={_id} className="topic">
               <div className="topic-text">
