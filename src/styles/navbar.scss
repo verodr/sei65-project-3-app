@@ -1,14 +1,27 @@
 @import './variables.scss';
 
+.navbar-main {
+min-width: 100vw;
+}
+
 .navbar {
   background-color: $egg-blue;
   min-width: 350px;
+
   .navbar-brand {
     font-size: 60px;
+    background-image: url(images/bender.png);
   }
   .nav-link {
     margin-inline: 10px;
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.banner {
+  width: 600px;
+  font-weight: bolder;
+  font-size: 80px;
+  text-align: center;
 }

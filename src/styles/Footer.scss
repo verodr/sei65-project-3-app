@@ -2,7 +2,7 @@
 
 .footer-main {
   background-color: $egg-blue;
-  min-width: 350px;
+  min-width: 100vw;
 }
 
 
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   background-color: $egg-blue;
-  width: 100vw;
+  min-width: 100vw;
   height:13vh;
   text-align: center;
   padding-top: 5px;
@@ -24,7 +24,7 @@
 .footer-header {
   background-color: grey;
   text-align: center;
-  min-width: 350px;
+  min-width: 100vw;
 }
 
 .Mark, .Rokas, .Veronica {
