@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const CreateTopicPage = () => {
   const [resStatus, setResStatus] = useState('')
-  const [userInput, setUserInput] = useState('')
+  const [loginError, setLoginError] = useState('')
   const [ errors, setErrors ] = useState('')
   const [ topicData, setTopicData ] = useState({
     topic: '',
@@ -17,7 +17,7 @@ const CreateTopicPage = () => {
 
   const checkLogin = (comm) => {
     if (!localStorage.getItem('token')) {
-      setResStatus({ status: 'NoToken' })
+      setLoginError('noLogin')
       return false
     }
     const currentUserName = localStorage.getItem('userName')
@@ -70,6 +70,7 @@ const CreateTopicPage = () => {
         <input type='text' name='imageUrl' placeholder='Url img' value={topicData.imageUrl} onChange={handleChange}/>
         { resStatus === 'wrong-url' && <p className='text-danger'> ERROR:The url provided is not a supported format!</p>}
         <p> { errors } </p>
+        {loginError === 'noLogin' && <p> Need to <Link to = '/login'>Login</Link></p>}
         <div className='create-button-container'>
           <button type='submit' className='create-button'>CREATE</button>
         </div>
