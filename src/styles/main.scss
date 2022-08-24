@@ -6,7 +6,9 @@
 @import './Footer.scss';
 @import './Register.scss';
 @import './Login.scss';
-@import './Home.scss';
+@import './CommentPage.scss';
+@import './components/CreateTopicPage.scss';
+
 
 * {
   box-sizing: border-box;
@@ -20,3 +22,5 @@ body {
   background-color: $bg;
   width: 100vw;
 }
+
+
