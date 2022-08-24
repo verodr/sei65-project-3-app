@@ -58,7 +58,7 @@ const TopicPage = () => {
   return (
     <>
       <div className="topic-div">
-        <h1 className="text-center">Topics</h1>
+        <h1 className="text-center">All Topics</h1>
       </div>
       <div className="topic-container">
         {topic.map(titles => {

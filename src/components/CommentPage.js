@@ -121,7 +121,7 @@ const CommentPage = () => {
       <div className='topic-header'>
         <h3>{data.topic}</h3>
         <img className="image" src={data.imageUrl}></img>
-        <h4>{data.description}</h4>
+        <p className="comment-description">{data.description}</p>
       </div>
       <ul className='comments'>
         { commentList ? 
