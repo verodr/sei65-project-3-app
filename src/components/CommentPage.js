@@ -28,6 +28,9 @@ const CommentPage = () => {
         setData(res.data)
       } catch (err) {
         setErrors(true)
+        if (err.response.status === 400 || err.response.status === 404) {
+          navigate('*')
+        }
       }
     }
     getData()
