@@ -65,7 +65,7 @@ const CreateTopicPage = () => {
     <div className='create-container'>
       <h1 className='create-title'>Create Topic</h1>
       <form onSubmit={createTopic} className='create-form'>
-        <input type='text' name='topic' placeholder='topic here' value= {topicData.topic} onChange={handleChange}/>
+        <input type='text' name='topic' placeholder='topic here' value={topicData.topic} onChange={handleChange}/>
         <textarea name='description' placeholder='type text here' id="message-box" value={topicData.description} onChange={handleChange}></textarea>
         <input type='text' name='imageUrl' placeholder='Url img' value={topicData.imageUrl} onChange={handleChange}/>
         { resStatus === 'wrong-url' && <p className='text-danger'> ERROR:The url provided is not a supported format!</p>}

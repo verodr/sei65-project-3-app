@@ -26,13 +26,10 @@ body {
 
 @media screen and (max-width: 992px) {
 body {
-  background-color: black;
   display: flex;
 align-items: flex-start;
 }
-.topic {
-  box-shadow: none;
-}
+
 
 .footer-main {
   min-width: 100vw;
