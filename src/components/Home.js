@@ -55,11 +55,11 @@ const Home = () => {
       <div className="topic-container">
         <div>
           {Object.values(topics).map((topic, index) => (
-            <>
+            <div key = {index}>
               <div className="home-title">{topic.title}</div>
               <div key={topic[0]._id} className="topic">
                 <div className="topic-text">
-                  <Link to={`/topic/${topic[0]._id}`}>
+                  <Link to ={`/topic/${topic[0]._id}`}>
                     <div className="topic-date">{topic[0].topicUser} Added on: {topic[0].createdAt.split('T')[0]} at: {topic[0].createdAt.split('T')[1].split('.')[0]}</div>
                     <div className="title">{topic[0].topic}</div>
                     <div className="description">{topic[0].description}</div>
@@ -69,7 +69,7 @@ const Home = () => {
                   <img className="image" src={topic[0].imageUrl}></img>
                 </div>        
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
