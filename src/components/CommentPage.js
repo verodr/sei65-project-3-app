@@ -153,36 +153,37 @@ const CommentPage = () => {
 
 
   return (
-    <div className="view">
+    <div className="comment-view">
       <div className='topic-header'>
+        <div className="topic-date">{data.topicUser} Added on: {data.createdAt} at: {data.createdAt}</div>
         <h3>{data.topic}</h3>
         <img className="image" src={data.imageUrl}></img>
         <p className="comment-description">{data.description}</p> 
-        <button className='delete' onClick={() => {
-          if (checkLogin(data)) {
-            deleteTopic(data._id)
+        <div className="comment-like">
+          <button onClick={() => likeTopic( data._id, data.like )}>👍
+            <span>{data.like}</span></button>
+          <button onClick={() => dislikeTopic( data._id, data.dislike )}>👎<span>{data.dislike}</span></button>
+          <button className="delete"  onClick={() => {
+            if (checkLogin(data)) {
+              deleteTopic(data._id)
             // navigate('/topic')
+            }
           }
-        }
-        }> DELETE </button> 
+          }> DELETE </button> 
+        </div>
       </div>
-      <div className="topic-like">
-        <button onClick={() => likeTopic( data._id, data.like )}>👍
-          <span>{data.like}</span></button>
-        <button onClick={() => dislikeTopic( data._id, data.dislike )}>👎<span>{data.dislike}</span></button>
-      </div>
-      
-      <ul className='comments'>
+      <div className="comments">
         { commentList ? 
           <>
             {commentList.map(c => {
               return (
-                <li key={c._id}> 
+                <div key={c._id}> 
                   { updating !== c._id && 
-                  <> <p> {c.text} </p>
+                  <> 
                     <div className='created-by-on'>
                       <p className='currentBy'> created by: {c.commentUser} </p>
-                      <p className='currentOn'> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
+                      <p className="topic-date"> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
+                      <p> {c.text} </p>
                     </div>
                     <button className='delete' onClick={() => {
                       if (checkLogin(c)) {
@@ -209,7 +210,7 @@ const CommentPage = () => {
                     <button className='edit' type="submit">EDIT</button> or <button className='cancel' onClick={ cancelUpdating }>CANCEL</button> 
                   </form> ) 
                   }
-                </li>
+                </div>
                 
               )
             })}
@@ -220,7 +221,8 @@ const CommentPage = () => {
             { errors ? 'Something went wrong. Please try again later' : 'Loading...'}
           </h2>
         }
-      </ul>
+      </div>
+      
       <div className='comment-form'>
         {/* This line displays the message from the server when a request has successfully completed (resStatus.data.message) */}
         { resStatus.status === 200 && <p className='post-comment'> {resStatus.data.message} </p>}
@@ -228,7 +230,7 @@ const CommentPage = () => {
         { resStatus.status === 'NoToken' && <p className='comment-error'> ERROR: Not logged in! Please <Link to = '/login'>Login</Link>!</p>}
         { resStatus.status === 'WrongToken' && <p className='comment-error'> ERROR: You cannot modify other users` contents!!</p>}
         <form onSubmit={createComment} className="form">
-          <input type="text" placeholder="Comment Here" value= {userInput} onChange={handleChange}/>
+          <textarea className="text-area" placeholder="Comment Here" rows="6" cols="60" value={userInput} onChange={handleChange}/>
           <button className='submit' type="submit">SEND</button>
         </form>
       </div>

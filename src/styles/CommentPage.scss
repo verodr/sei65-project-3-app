@@ -1,3 +1,11 @@
+
+
+.comment-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .topic-header {
   display: flex;
   justify-content: center;
@@ -5,12 +13,10 @@
   margin: 0 auto;
   flex-direction: column;
   margin-block: 30px;
-  border: 1px solid black;
   width: 1000px;
   text-align: center;
   box-shadow: 10px 10px 8px black;
   background-color: $egg-blue;
- 
 }
 
 .comments {
@@ -18,11 +24,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 800px;
+  width: 1000px;
   text-align: start;
   margin: 0 auto;
   font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 8px black;
+  background-color: $egg-blue;
 }
+
 .delete, .update {
   margin-bottom: 25px;
   background-color: $bg;
@@ -88,3 +98,44 @@ ul {
   max-width: 300px;
 }
 
+.delete {
+  height:40px;
+}
+
+button {
+  background: grey;
+}
+
+.comment-like {
+  width: 400px;
+  height: 60px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.topic-header {
+  border-radius: 5px;
+}
+
+.comment-form {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-color: $egg-blue;
+  box-shadow: 10px 10px 8px black;
+  width: 1000px;
+  padding: 20px;
+  border-radius: 5px;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+}
+
+.text-area {
+  color: black;
+  
+}
