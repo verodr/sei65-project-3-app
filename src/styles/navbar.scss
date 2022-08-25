@@ -9,8 +9,9 @@ min-width: 100vw;
   min-width: 350px;
 
   .navbar-brand {
-    font-size: 60px;
     background-image: url(images/bender.png);
+    margin-right: 0px;
+    margin-left: 50px;
   }
   .nav-link {
     margin-inline: 10px;
@@ -22,8 +23,8 @@ min-width: 100vw;
 .banner {
   max-width: 600px;
   font-weight: bolder;
-  font-size: 80px;
+  font-size: 100px;
   text-align: center;
   font-family: 'Ephesis', cursive; 
-  text-shadow: 2px 2px 4px black;
+  text-shadow: 6px 6px 4px black;
 }
