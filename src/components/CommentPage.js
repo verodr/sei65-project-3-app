@@ -57,7 +57,7 @@ const CommentPage = () => {
     try { 
       const res = await axios.delete(`https://readit-project.herokuapp.com/topic/${single}`)
       setResStatus(res)
-      navigate('/topic')
+      window.location.reload(navigate('/topic'))
     } catch (error){
       setResStatus(error.response)
     }
@@ -150,12 +150,15 @@ const CommentPage = () => {
       console.log(error)
     }
   }
-
+  console.log(data)
 
   return (
     <div className="comment-view">
       <div className='topic-header'>
-        <div className="topic-date">{data.topicUser} Added on: {data.createdAt} at: {data.createdAt}</div>
+        <div className="topic-date">
+          <p className='createdBy'>{data.topicUser}</p> 
+          {/* <p className='createdOn'>{data.createdAt.split('T')[0]} <br/> {data.createdAt.split('T')[1].split('.')[0]}</p> */}
+        </div>
         <h3>{data.topic}</h3>
         <img className="image" src={data.imageUrl}></img>
         <p className="comment-description">{data.description}</p> 
@@ -166,24 +169,23 @@ const CommentPage = () => {
           <button className="delete"  onClick={() => {
             if (checkLogin(data)) {
               deleteTopic(data._id)
-            // navigate('/topic')
             }
           }
           }> DELETE </button> 
         </div>
       </div>
-      <div className="comments">
+      <div>
         { commentList ? 
           <>
             {commentList.map(c => {
               return (
-                <div key={c._id}> 
+                <div key={c._id} className='comment-box'> 
                   { updating !== c._id && 
                   <> 
                     <div className='created-by-on'>
-                      <p className='currentBy'> created by: {c.commentUser} </p>
-                      <p className="topic-date"> created on: {c.createdAt.split('T')[0]} at {c.createdAt.split('T')[1].split('.')[0]} </p>
-                      <p> {c.text} </p>
+                      <p className='createdBy'>{c.commentUser} </p>
+                      <p className="createdOn">{c.createdAt.split('T')[0]} <br/> {c.createdAt.split('T')[1].split('.')[0]} </p>
+                      <p className='comment'> {c.text} </p>
                     </div>
                     <button className='delete' onClick={() => {
                       if (checkLogin(c)) {

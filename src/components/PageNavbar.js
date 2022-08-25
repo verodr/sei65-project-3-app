@@ -22,8 +22,7 @@ const PageNavbar = () => {
     <Navbar className='navbar'expand="lg">
       <Container className="navbar-main">
         <Navbar.Brand className="bender" as={Link} to="/"><img src={image} height="100px"></img></Navbar.Brand>
-        <div className="banner">Read it!
-        </div>
+        <div className="banner">Read it!</div>
         <div>
           <Navbar.Toggle className="justify-content-start" aria-controls='basic-navbar-nav'/>
           <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
