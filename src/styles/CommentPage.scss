@@ -23,12 +23,13 @@
   width: 700px;
   padding-inline: 5px;
   border: 1px solid black;
+  border-radius: 5px;
   background-color: $egg-blue;
   margin-block: 5px;
-  margin-right: 30px;
-  box-shadow: 4px 4px 2px black;
+  box-shadow: 6px 6px 4px black;
   font-size: 18px;
   text-align: start;
+  margin-bottom: 10px;
 }
 
 .delete, .update {
@@ -37,6 +38,7 @@
   margin-inline: 2px;
   width: 115px;
   height: 40px;
+  
 }
 
 .submit {
@@ -117,7 +119,7 @@ button {
   align-items: center;
   background-color: $egg-blue;
   box-shadow: 10px 10px 8px black;
-  width: 1000px;
+  width: 700px;
   padding: 20px;
   border-radius: 5px;
   .form {
