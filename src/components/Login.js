@@ -24,7 +24,7 @@ const Login = () => {
     e.preventDefault()
   
     try {
-      const res = await axios.post('http://localhost:4000/login', loginData)
+      const res = await axios.post('https://readit-project.herokuapp.com/login', loginData)
       const { token } = res.data
       localStorage.setItem('token', token)
       localStorage.setItem('userName', loginData.userName)

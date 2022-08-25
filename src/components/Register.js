@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault()
   
     try {
-      const res = await axios.post('http://localhost:4000/register', registerData)
+      const res = await axios.post('https://readit-project.herokuapp.com/register', registerData)
       navigate('/login')
     } catch (error) {
       console.log(error)

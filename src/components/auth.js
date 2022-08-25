@@ -1,4 +1,3 @@
-import Login from './Login'
 import { Buffer } from 'buffer'
 
 export const getToken = () => {

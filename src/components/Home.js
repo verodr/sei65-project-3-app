@@ -24,9 +24,9 @@ const Home = () => {
         //   axios.get('http://localhost:4000/highest-comment'),
         //   axios.get('http://localhost:4000/most-likes')
         // ])
-        const { data: latestTopic } = await axios.get('http://localhost:4000/latest-topic')
-        const { data: mostComments } = await axios.get('http://localhost:4000/highest-comment')
-        const { data: mostLikes } = await axios.get('http://localhost:4000/most-likes')
+        const { data: latestTopic } = await axios.get('https://readit-project.herokuapp.com/latest-topic')
+        const { data: mostComments } = await axios.get('https://readit-project.herokuapp.com/highest-comment')
+        const { data: mostLikes } = await axios.get('https://readit-project.herokuapp.com/most-likes')
         setTopics([...topics, { ...latestTopic, title: 'Latest Topic' }, { ...mostComments, title: 'Most Comments' }, { ...mostLikes, title: 'Most Likes' }])
         // setTopics([...topics, latestTopic, mostComments, mostLikes])
         // setTopics({ latestTopic: { ...latestTopic, title: 'Latest Topic' },

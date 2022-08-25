@@ -48,7 +48,7 @@ const CreateTopicPage = () => {
 
     try {
       console.log(body)
-      const res = await axios.post('http://localhost:4000/topic', body)
+      const res = await axios.post('https://readit-project.herokuapp.com/topic', body)
       setResStatus(res)
       navigate('/topic')
     } catch (error){

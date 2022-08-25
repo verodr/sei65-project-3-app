@@ -34,7 +34,7 @@ const TopicPage = () => {
   // Get our bread data
     const getData = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/topic')
+        const { data } = await axios.get('https://readit-project.herokuapp.com/topic')
         setTopic(data)
         console.log('data', data )
       } catch (errors) {
@@ -50,7 +50,7 @@ const TopicPage = () => {
       
       console.log(localStorage.getItem('userName'))
       const body = { like: firstLike + 1 }
-      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      const res = await axios.put(`https://readit-project.herokuapp.com/topic/${Id}`, body)
       setResStatus(body)
       console.log(res.data.message)
     } catch (error){
@@ -62,7 +62,7 @@ const TopicPage = () => {
       
       console.log(localStorage.getItem('userName'))
       const body = { dislike: firstLike + 1 }
-      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      const res = await axios.put(`https://readit-project.herokuapp.com/topic/${Id}`, body)
       setResStatus(body)
       console.log(res.data.message)
     } catch (error){

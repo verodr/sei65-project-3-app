@@ -24,7 +24,7 @@ const CommentPage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/topic/${single}`)
+        const res = await axios.get(`https://readit-project.herokuapp.com/topic/${single}`)
         setData(res.data)
       } catch (err) {
         setErrors(true)
@@ -36,7 +36,7 @@ const CommentPage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/comment/${single}`)
+        const res = await axios.get(`https://readit-project.herokuapp.com/comment/${single}`)
         setCommentList(res.data)
       } catch (err) {
         setErrors(true)
@@ -47,7 +47,7 @@ const CommentPage = () => {
 
   const deleteComment = async (single, commentId) => {
     try { 
-      const res = await axios.delete(`http://localhost:4000/comment/${single}/${commentId}`)
+      const res = await axios.delete(`https://readit-project.herokuapp.com/comment/${single}/${commentId}`)
       setResStatus(res)
     } catch (error){
       setResStatus(error.response)
@@ -55,7 +55,7 @@ const CommentPage = () => {
   }
   const deleteTopic = async (single) => {
     try { 
-      const res = await axios.delete(`http://localhost:4000/topic/${single}`)
+      const res = await axios.delete(`https://readit-project.herokuapp.com/topic/${single}`)
       setResStatus(res)
       navigate('/topic')
     } catch (error){
@@ -72,7 +72,7 @@ const CommentPage = () => {
     const body = { text: updateInput }
     console.log(body, single, commentId)
     try { 
-      const res = await axios.put(`http://localhost:4000/comment/${single}/${commentId}`, body)
+      const res = await axios.put(`https://readit-project.herokuapp.com/comment/${single}/${commentId}`, body)
       setResStatus(res)
       setUpdating('')
     } catch (error){
@@ -119,7 +119,7 @@ const CommentPage = () => {
     }
     const body = { text: userInput }
     try {
-      const res = await axios.post(`http://localhost:4000/comment/${single}`, body)
+      const res = await axios.post(`https://readit-project.herokuapp.com/comment/${single}`, body)
       setResStatus(res)
     } catch (error){
       setResStatus(error.response)
@@ -131,7 +131,7 @@ const CommentPage = () => {
       
       console.log(localStorage.getItem('userName'))
       const body = { like: firstLike + 1 }
-      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      const res = await axios.put(`https://readit-project.herokuapp.com/topic/${Id}`, body)
       setResStatus(body)
       console.log(res.data.message)
     } catch (error){
@@ -143,7 +143,7 @@ const CommentPage = () => {
       
       console.log(localStorage.getItem('userName'))
       const body = { dislike: firstLike + 1 }
-      const res = await axios.put(`http://localhost:4000/topic/${Id}`, body)
+      const res = await axios.put(`https://readit-project.herokuapp.com/topic/${Id}`, body)
       setResStatus(body)
       console.log(res.data.message)
     } catch (error){
