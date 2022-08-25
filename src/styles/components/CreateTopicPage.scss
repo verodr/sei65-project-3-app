@@ -10,19 +10,18 @@
   
   .create-container {
     height: 70vh;
+    width: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
     margin: 0 auto;
     border: 1px solid black;
     margin-block: 30px;
     background-color: $egg-blue;
     box-shadow: 10px 10px 8px black;
     border-radius: 5px;
-    min-width: 350px;
-    max-width: 350px;
+
   }
   
   .create-button-container {
@@ -50,12 +49,20 @@
     background-color: $egg-blue;
   }
 
+  .topic-title {
+    width:500px;
+  }
+
   #message-box {
     color: black;
-    width: 250px;
-    height: 100px;
+    height: 160px;
+    width: 500px;
     resize:none;
     border-radius: 5px;
     }
+
+  .topic-url {
+    width: 500px;
+  }
 
   
