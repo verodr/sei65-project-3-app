@@ -1,9 +1,8 @@
 import image from '../styles/images/LinkedIn-logo.png'
-import Footer from 'react-bootstrap/Footer'
 
 const PageFooter = () => {
   return (
-    <Footer className="footer-main">
+    <div className="footer-main">
       <div className="footer-header">Brought to you by:</div>
       <div className="footer-container"> 
         <div className="Mark"><a href="https://github.com/markmuy40" target="_blank" rel="noreferrer">Mark Muyuela</a>
@@ -16,7 +15,7 @@ const PageFooter = () => {
           <div className="Logo"><a href="https://www.linkedin.com/in/veronica-de-ronzi-019173185/" target="_blank" rel="noreferrer"><img src={image} height="50px"></img></a></div>
         </div>
       </div>
-    </Footer>  
+    </div>  
   )
   
 }

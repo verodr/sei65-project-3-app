@@ -3,6 +3,10 @@
 .footer-main {
   background-color: $egg-blue;
   min-width: 100vw;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -150px;
+  height: 125px;
 }
 
 .footer-container {
@@ -21,7 +25,7 @@
   
 }
 .footer-header {
-  background-color: grey;
+  background-color: $egg-blue;
   text-align: center;
   min-width: 100vw;
 }
