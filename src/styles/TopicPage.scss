@@ -1,3 +1,7 @@
+.view {
+  min-height: 100vh - 16vh - 20vh;
+}
+
 .topic-div {
   display: flex;
   justify-content: center;
@@ -18,7 +22,7 @@
   display: flex;
   justify-content: center;
   background-color: $egg-blue;
-  width:800px;
+  max-width: 800px;
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 10px 10px 8px black;
@@ -88,7 +92,7 @@
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: center;
-  width:300px;
+  max-width:300px;
 }
 
 

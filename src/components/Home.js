@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import placeholder from '../styles/images/No-image.png'
 
 // Import Bootstrap Components
 import Loading from './Loading'
@@ -60,7 +61,7 @@ const Home = () => {
                     </Link>
                   </div>
                   <div className="topic-image">
-                    <img className="image" src={topic[0].imageUrl}></img>
+                    <img className="image" src={topic[0].imageUrl ? topic[0].imageUrl : placeholder}></img>
                   </div>        
                 </div>
               </div>

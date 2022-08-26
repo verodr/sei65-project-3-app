@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import placeholder from '../styles/images/No-image.png'
 
 // Import Bootstrap Components
 import Loading from './Loading'
@@ -67,7 +68,7 @@ const TopicPage = () => {
     }
   }
   return (
-    <>
+    <div className="view">
       <div className="topic-div">
         <div className="search-topics">
           <div>
@@ -104,7 +105,7 @@ const TopicPage = () => {
                   </div> 
                 </div> 
                 <div className="topic-image">
-                  <img className="image" src={imageUrl}></img>
+                  <img className="image" src={imageUrl ? imageUrl : placeholder}></img>
                 </div>
               </div> 
             )
@@ -115,7 +116,7 @@ const TopicPage = () => {
           </>
         }
       </div>
-    </>
+    </div>
   )
 }
 export default TopicPage

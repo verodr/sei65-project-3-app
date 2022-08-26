@@ -3,9 +3,9 @@
 .footer-main {
   background-color: $egg-blue;
   min-width: 100vw;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -150px;
+  // position: absolute;
+  // bottom: 0;
+  // margin-bottom: -150px;
   height: 125px;
 }
 
@@ -17,7 +17,6 @@
   height:13vh;
   text-align: center;
   padding-top: 5px;
-  min-width: 350px;
   p {
     background-color: $egg-blue;
     text-align: center;
