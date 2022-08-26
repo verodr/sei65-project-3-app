@@ -42,7 +42,7 @@
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    width: 480px;
+    max-width: 480px;
     background-color: $egg-blue;
     overflow: hidden;
     text-overflow:ellipsis;
@@ -64,7 +64,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
   -webkit-box-orient: vertical;
   background-color: $egg-blue;
   overflow-wrap: break-word;
@@ -76,11 +75,8 @@
   align-items: center;
   margin: 0 auto;
   margin-left: 3px;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 100%;
   background-color: $egg-blue;
-
-
 }
 }
 .topic-image {
@@ -88,11 +84,8 @@
   align-items: center;
   justify-content: center;
   background-color: $egg-blue;
-  background-image: url(./images/No-image.png);
-  background-size: 100px;
-  background-repeat: no-repeat;
-  background-position: center;
-  max-width:300px;
+  min-width: 100px;
+  min-height:100px;
 }
 
 
