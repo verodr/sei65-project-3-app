@@ -40,7 +40,7 @@ const CreateTopicPage = () => {
       return 
     }
     //the code below is to check if the url is the right format to be printed
-    const body = topicData
+    const body = { ...topicData, createdAt: Date.now() }
     if (body.imageUrl.match(/\.(jpeg|jpg|gif|png)$/) === null && body.imageUrl !== '')  { 
       setResStatus('wrong-url')
       return 

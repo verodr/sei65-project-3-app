@@ -120,7 +120,7 @@ const CommentPage = () => {
     if (!checkLogin({ commentUser: localStorage.getItem('userName') }) || userInput === ''){
       return 
     }
-    const body = { text: userInput }
+    const body = { text: userInput, createdAt: Date.now() }
     try {
       const res = await axios.post(`https://readit-project.herokuapp.com/comment/${single}`, body)
       setResStatus(res)
