@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 // Import Bootstrap Components
+import Loading from './Loading'
 
 const Home = () => {
   // const [ topics, setTopics ] = useState({
@@ -19,20 +20,11 @@ const Home = () => {
     const getData = async () => {
       try {
 
-        // const [latestTopic, mostComments, mostLikes] = await Promise.all([
-        //   axios.get('http://localhost:4000/latest-topic'),
-        //   axios.get('http://localhost:4000/highest-comment'),
-        //   axios.get('http://localhost:4000/most-likes')
-        // ])
+ 
         const { data: latestTopic } = await axios.get('https://readit-project.herokuapp.com/latest-topic')
         const { data: mostComments } = await axios.get('https://readit-project.herokuapp.com/highest-comment')
         const { data: mostLikes } = await axios.get('https://readit-project.herokuapp.com/most-likes')
         setTopics([...topics, { ...latestTopic, title: 'Latest Topic' }, { ...mostComments, title: 'Most Comments' }, { ...mostLikes, title: 'Most Likes' }])
-        // setTopics([...topics, latestTopic, mostComments, mostLikes])
-        // setTopics({ latestTopic: { ...latestTopic, title: 'Latest Topic' },
-        //   mostComments: { ...mostComments, title: 'Most Comments' },
-        //   mostLikes: { ...mostLikes, title: 'Most Likes' }, 
-        // })
       } catch (errors) {
         console.log(errors)
         setErrors(true)
@@ -54,23 +46,31 @@ const Home = () => {
       </div>
       <div className="topic-container">
         <div>
-          {Object.values(topics).map((topic, index) => (
-            <div key = {index}>
-              <div className="home-title">{topic.title}</div>
-              <div key={topic[0]._id} className="topic">
-                <div className="topic-text">
-                  <Link to ={`/topic/${topic[0]._id}`}>
-                    <div className="topic-date">{topic[0].topicUser} Added on: {topic[0].createdAt.split('T')[0]} at: {topic[0].createdAt.split('T')[1].split('.')[0]}</div>
-                    <div className="title">{topic[0].topic}</div>
-                    <div className="description">{topic[0].description}</div>
-                  </Link>
+          {Object.values(topics).length > 0 
+            ? 
+            Object.values(topics).map((topic, index) => (
+              <div key = {index}>
+                <div className="home-title">{topic.title}</div>
+                <div key={topic[0]._id} className="topic">
+                  <div className="topic-text">
+                    <Link to ={`/topic/${topic[0]._id}`}>
+                      <div className="topic-date">{topic[0].topicUser} Added on: {topic[0].createdAt.split('T')[0]} at: {topic[0].createdAt.split('T')[1].split('.')[0]}</div>
+                      <div className="title">{topic[0].topic}</div>
+                      <div className="description">{topic[0].description}</div>
+                    </Link>
+                  </div>
+                  <div className="topic-image">
+                    <img className="image" src={topic[0].imageUrl}></img>
+                  </div>        
                 </div>
-                <div className="topic-image">
-                  <img className="image" src={topic[0].imageUrl}></img>
-                </div>        
               </div>
-            </div>
-          ))}
+            ))
+            :
+            <>
+              {errors ? <h2>Something went wrong. Please try again later</h2> : <Loading />}
+              {console.log('errors', errors)}
+            </>
+          }
         </div>
       </div>
     </>
