@@ -9,6 +9,7 @@
 @import './CommentPage.scss';
 @import './components/CreateTopicPage.scss';
 @import './home.scss';
+@import './components/notFound.scss';
 
 
 * {
@@ -22,6 +23,7 @@ body {
   margin: 0 auto;
   background-color: $bg;
   width: 100vw;
+  position: relative;
 }
 
 @media screen and (max-width: 992px) {
